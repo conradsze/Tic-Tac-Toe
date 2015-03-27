@@ -1,0 +1,37 @@
+div{
+	border: 2px solid blue;
+}
+
+.boxes{
+	display: inline-block;
+	width:100px;
+	height: 100px
+}
+
+	#container{
+	display:inline-block;
+	margin: 0 auto;
+
+}
+
+#sidebar{
+	  margin: 20px 50px;
+  width: 23%;
+  height: 277px;
+
+	display: inline-block;
+	float: left;
+
+}
+#whole{
+
+	margin: 0 auto;
+}
+
+#conv{
+	  text-align: center;
+  height: 100px;
+}
+ #top{
+ 	text-align: center;
+ }
