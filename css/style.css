@@ -1,5 +1,25 @@
+
+
+body{
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	background-image: url(http://www.idea-venue.com/wp-content/tutsource/note/Note%20paper.png);
+	background-position: center;
+}
 div{
 	border: 2px solid blue;
+	padding: 10px;
+	margin:10px;
+	border-radius: 10%;
+	vertical-align: top;
+
+}
+
+span{
+	vertical-align: top;
+	font-size: 70px;
+	color: red
+
 }
 
 .boxes{
@@ -9,6 +29,7 @@ div{
 }
 
 	#container{
+		  width: 440px;
 	display:inline-block;
 	margin: 0 auto;
 

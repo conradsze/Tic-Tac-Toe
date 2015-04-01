@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html>
+	<!DOCTYPE html>
+<html ng-app="ticApp">
 <head>
 	<title>Tic tac toe</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/angular.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/TicController.js"></script>
+
 </head>
-<body>
+<body ng-controller="TicController as tic">
 <div id="whole">
 	<div id="top">
-		<H1>PLAY Tic-tac-toe</H1>
+		<H1>PLAY Tic-tac-toe {{2+2}}</H1>
 	</div>
 	<div id="sidebar">
 		side bar
 	</div>
 	<div id="container">
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<br>
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<br>
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<div class="boxes"></div>
-		<br>
+		<div class="boxes" ng-repeat="t in tic.box" ng-click="tic.click(t)"><span>{{t.text}}</span></div>
 	</div>
 	<div id="conv">
 		conversation goes here

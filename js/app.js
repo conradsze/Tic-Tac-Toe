@@ -1,0 +1,2 @@
+angular
+    .module('ticApp', ['firebase']);
