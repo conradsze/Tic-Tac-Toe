@@ -7,7 +7,7 @@ body{
 	background-position: center;
 }
 div{
-	border: 2px solid blue;
+	border: 2px solid rgb(90, 90, 90);
 	padding: 10px;
 	margin:10px;
 	border-radius: 10%;
@@ -32,10 +32,14 @@ span{
 		  width: 440px;
 	display:inline-block;
 	margin: 0 auto;
+	cursor: url(http://www.picgifs.com/cursors/cursors/pencil-and-pen/animaatjes_pencil_icon4.gif),auto;
+
 
 }
 
 #sidebar{
+	  transform: translateX(-240px);
+  transition: 2s;
 	  margin: 20px 50px;
   width: 23%;
   height: 277px;
@@ -44,6 +48,17 @@ span{
 	float: left;
 
 }
+#sidebar:hover{
+	  transform: translateX(0px);
+
+	  margin: 20px 50px;
+  width: 23%;
+  height: 277px;
+
+	display: inline-block;
+	float: left;
+
+
 #whole{
 
 	margin: 0 auto;
