@@ -4,7 +4,7 @@
 	<title>Tic tac toe</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/angular.js"></script>
@@ -30,7 +30,7 @@
 		</ul>
 	</div>
 	<div id="container">
-		<div class="boxes" ng-repeat="t in tic.game.box" ng-click="tic.click(t)"><span>{{t.text}}</span></div>
+		<div ng-class="{'boxes': tic.game.box[$index].bg , 'destroy': !tic.game.box[$index].bg}" ng-repeat="t in tic.game.box" ng-click="tic.click(t)"><span>{{t.text}}</span></div>
 	</div>
 	
 	<div id="container2" ng-show="tic.game.gameover">

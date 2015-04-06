@@ -132,3 +132,13 @@ h3{
 h4:hover{
 	color:red;
 }
+.destroy{
+			border: 2px solid rgb(90, 90, 90);
+	display: inline-block;
+	width:100px;
+	height: 100px;
+	background-image: url(https://keithjbaker.files.wordpress.com/2014/04/dced4-hole-in-paper-8119727.jpg);
+	  background-size: cover;
+	  background-position: center;
+
+}

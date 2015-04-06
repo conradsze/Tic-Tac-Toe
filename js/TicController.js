@@ -18,6 +18,8 @@ function TicController($firebaseObject) {
 	self.message_false = "";
 	self.you;
 	self.randomMove = randomMove;
+	self.randomDestroy = randomDestroy;
+	self.hiddenClick=hiddenClick;
 
 
 
@@ -47,6 +49,7 @@ function TicController($firebaseObject) {
 			for (var i = 0; i < 9; i++) {
 				gameObject.box.push({
 					text: "",
+					bg:true
 				})
 			};
 
@@ -75,7 +78,8 @@ function TicController($firebaseObject) {
 			self.game.box[index].text = self.game.nextmove;
 			self.game.movecount++
 					if (index==self.game.hidebox) {
-				self.randomMove()
+				self.hiddenClick();
+				self.game.hidebox=null;
 			}
 				self.getwinner();
 			self.game.go = !self.game.go
@@ -154,7 +158,8 @@ function TicController($firebaseObject) {
 
 	function restart() {
 		for (var i = 0; i < 9; i++) {
-			self.game.box[i].text = ""
+			self.game.box[i].text = "";
+			self.game.box[i].bg = true
 		};
 		self.game.gameover = false;
 		self.game.movecount = 0;
@@ -191,13 +196,37 @@ function TicController($firebaseObject) {
 
 
 	function randomMove() {
-    if (confirm("congratulations! you just found a hidden item - 'shuffle', which randomly arrange all the boxes. Click okay to apply the item") == true) {
+    if (confirm("Congratulations! you just found a hidden item - 'shuffle', which randomly arranges all the boxes. Click okay to apply the item") == true) {
        	self.game.hidden_message="Player "+ self.game.nextmove + " just applied the hidden item - 'shuffle' at round "+ self.game.movecount+ " !!!!"
        	self.game.box = self.game.box.shuffle();
 		self.game.$save()
     } 
     
 }
+
+	function randomDestroy() {
+    if (confirm("Congratulations! you just found a hidden item - 'Destroy', which randomly destroys a box. Click okay to apply the item") == true) {
+       	var rand = (Math.floor(Math.random() * 9))
+       	self.game.hidden_message="Player "+ self.game.nextmove + " just applied the hidden item - 'destroy' to destroy box number "+(rand+1)+ " at round "+ self.game.movecount+ " !!!!"
+       		if(self.game.box[rand].text == ""){
+       				self.game.movecount++
+       		};
+       		self.game.box[rand].bg = false
+       		self.game.box[rand].text = " ";
+       		
+       	
+       	
+		self.game.$save()
+    } 
+    
+}
+
+	function hiddenClick(){
+		var arra=[self.randomMove, self.randomDestroy];
+		arra[(Math.floor(Math.random() * 2))]()
+
+	}
+
 
 
 };
