@@ -17,16 +17,28 @@
 <body ng-controller="TicController as tic">
 <div id="whole">
 	<div id="top">
-		<H1>PLAY Tic-tac-toe {{2+2}}</H1>
+		<H1>Super Tic-tac-toe</H1>
+		<a>{{tic.game.hidden_message}}</a><br>
+		<a ng-show="tic.game.go">{{tic.message_true}}</a><a ng-hide="tic.game.go">{{tic.message_false}}</a>
 	</div>
 	<div id="sidebar">
-		side bar
+		<h3>score board</h3>
+		<ul>
+			<li>Player X: {{tic.game.xscore}}</li>
+			<li>Player O: {{tic.game.oscore}}</li>
+			<h4 ng-click="tic.resetScore()">reset score</h4>
+		</ul>
 	</div>
 	<div id="container">
-		<div class="boxes" ng-repeat="t in tic.box" ng-click="tic.click(t)"><span>{{t.text}}</span></div>
+		<div class="boxes" ng-repeat="t in tic.game.box" ng-click="tic.click(t)"><span>{{t.text}}</span></div>
+	</div>
+	
+	<div id="container2" ng-show="tic.game.gameover">
+		<h2 id="win_message">{{tic.game.winner}}</h2>
+		<span id="restart" ng-click="tic.restart()">play again?</span>
 	</div>
 	<div id="conv">
-		conversation goes here
+		{{tic.message}}
 	</div>
 
 </div>
